@@ -1,11 +1,13 @@
 package com.capstone.capstone_design.controller.restaurant;
 
+import com.capstone.capstone_design.dto.restaurant.RestaurantDetailResponse;
 import com.capstone.capstone_design.dto.restaurant.RestaurantListResponse;
 import com.capstone.capstone_design.service.restaurant.RestaurantService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,5 +22,13 @@ public class RestaurantController {
     public ResponseEntity<List<RestaurantListResponse>> getRestaurantList() {
         List<RestaurantListResponse> restaurantList = restaurantService.getRestaurantList();
         return ResponseEntity.ok(restaurantList);
+    }
+
+    //특정 식당 상세 조회
+    @GetMapping("/{restaurantId}")
+    public ResponseEntity<RestaurantDetailResponse> getRestaurantDetails(
+        @PathVariable Long restaurantId){
+        RestaurantDetailResponse responseDto = restaurantService.getRestaurantDetails(restaurantId);
+        return ResponseEntity.ok(responseDto);
     }
 }

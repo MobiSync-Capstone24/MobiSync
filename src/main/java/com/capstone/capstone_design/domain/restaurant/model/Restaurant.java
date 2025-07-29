@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AccessLevel;
@@ -28,6 +29,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "restaurant")
 public class Restaurant {
 
     @Id
@@ -45,13 +47,13 @@ public class Restaurant {
     @Column(name = "restaurant_address", nullable = false)
     private String address;
 
-    @Column(name = "restarunt_number")
+    @Column(name = "restaurant_number")
     private String number;
 
-    @Column(name = "restarunt_time")
+    @Column(name = "restaurant_time")
     private String time;
 
-    @Column(name = "restarunt_introduce")
+    @Column(name = "restaurant_introduce")
     private String introduce;
 
     @Builder.Default // 빌더 패턴 사용 시 List를 null이 아닌 빈 리스트로 초기화
