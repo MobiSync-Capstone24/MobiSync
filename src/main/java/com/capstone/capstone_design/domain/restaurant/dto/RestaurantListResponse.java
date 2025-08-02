@@ -1,4 +1,4 @@
-package com.capstone.capstone_design.dto.restaurant;
+package com.capstone.capstone_design.domain.restaurant.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
