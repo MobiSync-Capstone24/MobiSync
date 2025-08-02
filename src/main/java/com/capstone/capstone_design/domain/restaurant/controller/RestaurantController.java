@@ -1,8 +1,8 @@
-package com.capstone.capstone_design.controller.restaurant;
+package com.capstone.capstone_design.domain.restaurant.controller;
 
-import com.capstone.capstone_design.dto.restaurant.RestaurantDetailResponse;
-import com.capstone.capstone_design.dto.restaurant.RestaurantListResponse;
-import com.capstone.capstone_design.service.restaurant.RestaurantService;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantDetailResponse;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantListResponse;
+import com.capstone.capstone_design.domain.restaurant.service.RestaurantService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

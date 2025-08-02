@@ -1,9 +1,9 @@
-package com.capstone.capstone_design.service.restaurant;
+package com.capstone.capstone_design.domain.restaurant.service;
 
 import com.capstone.capstone_design.domain.restaurant.model.Restaurant;
-import com.capstone.capstone_design.dto.restaurant.RestaurantDetailResponse;
-import com.capstone.capstone_design.dto.restaurant.RestaurantListResponse;
-import com.capstone.capstone_design.repository.restaurant.RestaurantRepository;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantDetailResponse;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantListResponse;
+import com.capstone.capstone_design.domain.restaurant.repository.RestaurantRepository;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
