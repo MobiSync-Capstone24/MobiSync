@@ -1,6 +1,6 @@
 package com.capstone.capstone_design.domain.coupon.model;
 
-import com.capstone.capstone_design.domain.user.model.User;
+import com.capstone.capstone_design.domain.user.model.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -22,7 +22,7 @@ public class UserCoupon {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
-    private User user;
+    private Users users;
 
     @Column(name = "coupon_used")
     private Boolean used;

@@ -1,10 +1,10 @@
 package com.capstone.capstone_design.domain.user.model;
 
-import com.capstone.capstone_design.domain.user.model.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
@@ -18,9 +18,10 @@ public class UserTaste {
     @Column(name = "users_taste_id")
     private Long id;
 
+    @Setter
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
-    private User user;
+    private Users users;
 
     @Column(name = "users_spicy")
     private BigDecimal spicy;
@@ -39,4 +40,5 @@ public class UserTaste {
 
     @Column(name = "users_bitter")
     private BigDecimal bitter;
+
 }
