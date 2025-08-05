@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-public class RestaurantDetailResponse {
+public class RestaurantDetailResponseDto {
 
     private final Long restaurantId;
     private final String name;
@@ -14,7 +14,7 @@ public class RestaurantDetailResponse {
     private final String introduce;
 
     @Builder
-    public RestaurantDetailResponse(Long restaurantId, String name, String address, String number, String time, String introduce){
+    public RestaurantDetailResponseDto(Long restaurantId, String name, String address, String number, String time, String introduce){
         this.restaurantId = restaurantId;
         this.name = name;
         this.address = address;

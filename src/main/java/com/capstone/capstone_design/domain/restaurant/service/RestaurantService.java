@@ -1,8 +1,8 @@
 package com.capstone.capstone_design.domain.restaurant.service;
 
 import com.capstone.capstone_design.domain.restaurant.model.Restaurant;
-import com.capstone.capstone_design.domain.restaurant.dto.RestaurantDetailResponse;
-import com.capstone.capstone_design.domain.restaurant.dto.RestaurantListResponse;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantDetailResponseDto;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantListResponseDto;
 import com.capstone.capstone_design.domain.restaurant.repository.RestaurantRepository;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -20,12 +20,12 @@ public class RestaurantService {
 
     // 식당 목록 조회
     @Transactional(readOnly = true)
-    public List<RestaurantListResponse> getRestaurantList() {
+    public List<RestaurantListResponseDto> getRestaurantList() {
 
         List<Restaurant> restaurants = restaurantRepository.findAll();
 
         return restaurants.stream()
-            .map(restaurant -> new RestaurantListResponse(
+            .map(restaurant -> new RestaurantListResponseDto(
                 restaurant.getId(),
                 restaurant.getName(),
                 restaurant.getAddress()))
@@ -34,12 +34,12 @@ public class RestaurantService {
 
     // 특정 식당 상세 조회
     @Transactional(readOnly = true)
-    public RestaurantDetailResponse getRestaurantDetails(Long restaurantId){
+    public RestaurantDetailResponseDto getRestaurantDetails(Long restaurantId){
 
         Restaurant restaurant = restaurantRepository.findById(restaurantId)
             .orElseThrow(() -> new NoSuchElementException("해당 ID의 식당을 찾을 수 없습니다."));
 
-        return RestaurantDetailResponse.builder()
+        return RestaurantDetailResponseDto.builder()
             .restaurantId(restaurant.getId())
             .name(restaurant.getName())
             .address(restaurant.getAddress())
