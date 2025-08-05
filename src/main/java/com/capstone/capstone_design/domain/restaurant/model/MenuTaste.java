@@ -1,7 +1,7 @@
 package com.capstone.capstone_design.domain.restaurant.model;
 
 import com.capstone.capstone_design.domain.restaurant.model.Menu;
-import com.capstone.capstone_design.domain.user.model.User;
+import com.capstone.capstone_design.domain.user.model.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -25,7 +25,7 @@ public class MenuTaste {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
-    private User user;
+    private Users users;
 
     @Column(name = "menu_spicy")
     private BigDecimal spicy;

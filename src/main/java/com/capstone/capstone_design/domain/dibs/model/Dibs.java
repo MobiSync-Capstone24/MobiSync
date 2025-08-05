@@ -1,7 +1,8 @@
 package com.capstone.capstone_design.domain.dibs.model;
 
 import com.capstone.capstone_design.domain.restaurant.model.Restaurant;
-import com.capstone.capstone_design.domain.user.model.User;
+import com.capstone.capstone_design.domain.user.model.Users;
+import com.capstone.capstone_design.domain.user.model.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class Dibs {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
-    private User user;
+    private Users users;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
