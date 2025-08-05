@@ -31,5 +31,7 @@ public class AdminService {
             .introduce(requestDto.getIntroduce())
             .owner(owner)
             .build();
+
+        restaurantRepository.save(newRestaurant);
     }
 }
