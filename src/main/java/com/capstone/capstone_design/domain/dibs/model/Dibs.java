@@ -1,15 +1,17 @@
 package com.capstone.capstone_design.domain.dibs.model;
 
 import com.capstone.capstone_design.domain.restaurant.model.Restaurant;
-import com.capstone.capstone_design.domain.user.model.User;
+import com.capstone.capstone_design.domain.user.model.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Setter(AccessLevel.PACKAGE)
+@NoArgsConstructor()
 @Table(name = "dibs")
 public class Dibs {
     @Id
@@ -19,9 +21,14 @@ public class Dibs {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
-    private User user;
+    private Users users;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
+
+    public Dibs(Users users, Restaurant restaurant) {
+        this.users = users;
+        this.restaurant = restaurant;
+    }
 }

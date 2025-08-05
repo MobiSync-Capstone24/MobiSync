@@ -1,4 +1,3 @@
-// User.java
 package com.capstone.capstone_design.domain.user.model;
 
 import com.capstone.capstone_design.domain.dibs.model.Dibs;

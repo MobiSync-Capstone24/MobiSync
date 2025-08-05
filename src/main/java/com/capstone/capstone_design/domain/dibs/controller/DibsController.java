@@ -16,7 +16,7 @@ public class DibsController {
     private final DibsService dibsService;
 
     @PostMapping("/restaurants/{restaurantId}")
-    public ResponseEntity<Void> createDibs(@PathVariable Long restaurantId) {
+    public ResponseEntity<Void> createDibs(@PathVariable Long restaurantId) throws IllegalAccessException {
         Long userId = 1L;
 
         dibsService.createDibs(userId, restaurantId);

@@ -1,10 +1,6 @@
 package com.capstone.capstone_design.domain.restaurant.model;
 
-import com.capstone.capstone_design.domain.restaurant.model.Menu;
-
 import com.capstone.capstone_design.domain.user.model.Users;
-
-import com.capstone.capstone_design.domain.user.model.User;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -31,9 +27,6 @@ public class MenuTaste {
     @JoinColumn(name = "users_id")
 
     private Users users;
-
-    private User user;
-
 
     @Column(name = "menu_spicy")
     private BigDecimal spicy;
