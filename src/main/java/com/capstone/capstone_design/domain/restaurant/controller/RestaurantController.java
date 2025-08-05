@@ -1,7 +1,7 @@
 package com.capstone.capstone_design.domain.restaurant.controller;
 
-import com.capstone.capstone_design.domain.restaurant.dto.RestaurantDetailResponse;
-import com.capstone.capstone_design.domain.restaurant.dto.RestaurantListResponse;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantDetailResponseDto;
+import com.capstone.capstone_design.domain.restaurant.dto.RestaurantListResponseDto;
 import com.capstone.capstone_design.domain.restaurant.service.RestaurantService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/restaurants") // 일단 임시로 /v1/경로 넣어놨음 걍 없앨까
+@RequestMapping("/api/v1/restaurants")
 @RequiredArgsConstructor
 public class RestaurantController {
     private final RestaurantService restaurantService;
 
     //식당 목록 조회
     @GetMapping
-    public ResponseEntity<List<RestaurantListResponse>> getRestaurantList() {
-        List<RestaurantListResponse> restaurantList = restaurantService.getRestaurantList();
+    public ResponseEntity<List<RestaurantListResponseDto>> getRestaurantList() {
+        List<RestaurantListResponseDto> restaurantList = restaurantService.getRestaurantList();
         return ResponseEntity.ok(restaurantList);
     }
 
     //특정 식당 상세 조회
     @GetMapping("/{restaurantId}")
-    public ResponseEntity<RestaurantDetailResponse> getRestaurantDetails(
+    public ResponseEntity<RestaurantDetailResponseDto> getRestaurantDetails(
         @PathVariable Long restaurantId){
-        RestaurantDetailResponse responseDto = restaurantService.getRestaurantDetails(restaurantId);
+        RestaurantDetailResponseDto responseDto = restaurantService.getRestaurantDetails(restaurantId);
         return ResponseEntity.ok(responseDto);
     }
 }

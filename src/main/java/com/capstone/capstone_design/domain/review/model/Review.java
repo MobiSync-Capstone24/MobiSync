@@ -4,7 +4,11 @@ package com.capstone.capstone_design.domain.review.model;
 import com.capstone.capstone_design.domain.restaurant.model.Menu;
 import com.capstone.capstone_design.domain.restaurant.model.Restaurant;
 import com.capstone.capstone_design.domain.review.model.ReviewTaste;
+
 import com.capstone.capstone_design.domain.user.model.Users;
+
+import com.capstone.capstone_design.domain.user.model.User;
+
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -26,7 +30,11 @@ public class Review {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
+
     private Users users;
+
+    private User user;
+
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "restaurant_id")
