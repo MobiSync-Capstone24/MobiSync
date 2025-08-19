@@ -21,6 +21,7 @@ public class DibsService {
     private final UserRepository userRepository;
     private final RestaurantRepository restaurantRepository;
 
+    //식당 찜 하기
     @Transactional
     public void createDibs(Long userId, Long restaurantId) throws IllegalAccessException {
         Users user = userRepository.findById(userId)
@@ -37,5 +38,20 @@ public class DibsService {
 
         dibsRepository.save(newDibs);
 
+    }
+
+    //식담 찜 취소하기
+    @Transactional
+    public void deleteDibs(Long memberId, Long restaurantId) {
+        Users user = userRepository.findById(memberId)
+            .orElseThrow(() -> new NoSuchElementException("해당 유저를 찾을 수 없습니다."));
+
+        Restaurant restaurant = restaurantRepository.findById(restaurantId)
+            .orElseThrow(() -> new NoSuchElementException("해당 식당을 찾을 수 없습니다."));
+
+        Dibs dibs = dibsRepository.findByUsersAndRestaurant(user, restaurant)
+            .orElseThrow(() -> new IllegalArgumentException("해당 식당을 찜하지 않았습니다."));
+
+        dibsRepository.delete(dibs);
     }
 }
